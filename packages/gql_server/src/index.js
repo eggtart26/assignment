@@ -85,7 +85,7 @@ const resolvers = {
 
         hello: async () => {
             const responseFromDataSource = await axios.get(
-                `http://localhost:3000/aaaaa`
+                `http://localhost:3000/testing`
             );
             console.log(responseFromDataSource.data)
             return responseFromDataSource.data.data

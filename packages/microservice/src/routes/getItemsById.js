@@ -14,4 +14,7 @@ const getItemsByIdHandler = async (request, response) => {
 
 module.exports = (app) => {
     app.get('/items', getItemsByIdHandler);
+    app.get('/testing', async (request, response) => {
+    	return response.status(200).send(JSON.stringify({data: "testing result"}));
+    });
 };
