@@ -3,7 +3,11 @@
     "version": "1.0.0",
     "description": "Walmart Mexico Code Challenge",
     "scripts": {
-        "bootstrap": "lerna bootstrap"
+        "bootstrap": "lerna bootstrap",
+        "maininstall": "cd packages/gql_server && npm i && cd .. && cd .. && cd packages/microservice && npm i && cd .. && cd .. && cd packages/next_server && npm i",
+        "maindev": "cd packages/next_server && npm run build",
+        "mainstart": "cd packages/gql_server && npm start && cd .. && cd .. && cd packages/microservice && npm start && cd .. && cd .. && cd packages/next_server && npm start",
+        "mainrun": "npm run maininstall && npm run maindev && npm run mainstart"
     },
     "author": "walmex-team",
     "license": "ISC",
