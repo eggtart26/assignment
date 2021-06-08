@@ -12,6 +12,7 @@ const typeDefs = gql`
     type Query {
         usersRecommendedItems(username: String!): [Item!]!
         item(id: ID!): Item
+        hello: String
     }
 
     type Item {
@@ -31,8 +32,7 @@ const resolvers = {
     Query: {
         usersRecommendedItems: async (parent , args, context, info) => {
             // extract needed arguments
-            const { username } = args;
-
+            let { username } = args;
             // log point before call
             console.log(`\nusersRecommendedItems > before GET /users/recommendations?username=${username}\n`);
 
@@ -81,6 +81,14 @@ const resolvers = {
 
             // return the data
             return responseFromDataSource.data[0];
+        },
+
+        hello: async () => {
+            const responseFromDataSource = await axios.get(
+                `http://localhost:3000/aaaaa`
+            );
+            console.log(responseFromDataSource.data)
+            return responseFromDataSource.data.data
         }
     }
 };
